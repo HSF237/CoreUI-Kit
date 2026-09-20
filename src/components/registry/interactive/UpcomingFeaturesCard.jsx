@@ -1,85 +1,61 @@
-import { ArrowUpRight, Layers3, Sparkles, WandSparkles, Workflow } from "lucide-react";
+import { ArrowUpRight, Boxes, CircleDot, Sparkles, WandSparkles, Workflow } from "lucide-react";
 
 const features = [
-  {
-    title: "Smart Automations",
-    description: "Trigger multi-step workflows from product events.",
-    status: "In Development",
-    progress: 72,
-    icon: Workflow,
-  },
-  {
-    title: "Team Spaces",
-    description: "Shared workspaces with granular collaborator roles.",
-    status: "Planned",
-    progress: 34,
-    icon: Layers3,
-  },
-  {
-    title: "AI Theme Studio",
-    description: "Generate theme tokens while preserving your design system.",
-    status: "Research",
-    progress: 18,
-    icon: WandSparkles,
-  },
+  { title:"Automation Studio", description:"Compose multi-step workflows with triggers and guardrails.", status:"Building", progress:78, icon:Workflow, tone:"from-cyan-300/15 to-cyan-300/[0.02]" },
+  { title:"Component Cloud", description:"Sync private component collections across every workspace.", status:"Planned", progress:46, icon:Boxes, tone:"from-violet-300/15 to-violet-300/[0.02]" },
+  { title:"AI Theme Lab", description:"Generate production design tokens from your visual language.", status:"Research", progress:24, icon:WandSparkles, tone:"from-amber-300/15 to-amber-300/[0.02]" },
 ];
 
-const statusClasses = {
-  "In Development": "border-cyan-300/20 bg-cyan-300/10 text-cyan-200",
-  "Planned": "border-violet-300/20 bg-violet-300/10 text-violet-200",
-  "Research": "border-amber-300/20 bg-amber-300/10 text-amber-200",
-};
-
-export default function UpcomingFeaturesCard() {
+export default function UpcomingFeaturesCard(){
   return (
-    <section className="group relative w-full max-w-2xl overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.06] p-1 shadow-2xl shadow-slate-950/50 backdrop-blur-2xl">
-      <div className="absolute -left-20 top-8 h-44 w-44 rounded-full bg-cyan-400/15 blur-3xl transition duration-700 group-hover:bg-cyan-400/20" />
-      <div className="absolute -right-20 bottom-0 h-44 w-44 rounded-full bg-violet-500/15 blur-3xl transition duration-700 group-hover:bg-violet-500/20" />
+    <section className="group relative w-full max-w-3xl overflow-hidden rounded-[30px] border border-white/10 bg-[#06101c] p-1 shadow-2xl shadow-black/40">
+      <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cyan-400/10 blur-[80px] transition duration-700 group-hover:bg-cyan-400/15" />
+      <div className="absolute -bottom-24 -right-16 h-56 w-56 rounded-full bg-violet-500/10 blur-[80px] transition duration-700 group-hover:bg-violet-500/15" />
 
-      <div className="relative rounded-[26px] border border-white/10 bg-slate-950/55 p-5 sm:p-7">
+      <div className="relative rounded-[26px] border border-white/[0.07] bg-black/10 p-5 sm:p-6">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
               <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
               Product roadmap
             </div>
-            <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">Upcoming Features</h3>
-            <p className="mt-2 max-w-lg text-sm leading-6 text-slate-400">
-              A focused look at what is shipping next across the platform.
-            </p>
+            <h3 className="mt-4 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">What we are building next.</h3>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">A roadmap designed to make production UI faster to discover, adapt and ship.</p>
           </div>
 
-          <button type="button" className="inline-flex shrink-0 items-center gap-2 self-start rounded-xl border border-white/10 bg-white/[0.05] px-3.5 py-2 text-xs font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:bg-white/[0.08] hover:text-white">
-            Full roadmap
-            <ArrowUpRight className="h-3.5 w-3.5" />
+          <button className="group/button inline-flex shrink-0 items-center gap-2 self-start rounded-xl border border-white/10 bg-white/[0.035] px-3.5 py-2.5 text-[11px] font-semibold text-slate-300 transition hover:-translate-y-0.5 hover:bg-white/[0.06] hover:text-white">
+            View roadmap
+            <ArrowUpRight className="h-3.5 w-3.5 transition group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
           </button>
         </div>
 
-        <div className="mt-7 space-y-3">
+        <div className="mt-7 grid gap-3 md:grid-cols-3">
           {features.map((feature) => {
-            const Icon = feature.icon;
+            const Icon=feature.icon;
             return (
-              <article key={feature.title} className="group/item rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055]">
-                <div className="flex items-start gap-3.5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.035] text-slate-200">
-                    <Icon className="h-[18px] w-[18px]" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                      <div>
-                        <h4 className="font-medium text-slate-100">{feature.title}</h4>
-                        <p className="mt-1 text-xs leading-5 text-slate-500">{feature.description}</p>
-                      </div>
-                      <span className={"w-fit shrink-0 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] " + statusClasses[feature.status]}>
-                        {feature.status}
-                      </span>
+              <article key={feature.title} className="group/card relative overflow-hidden rounded-[22px] border border-white/[0.08] bg-white/[0.025] p-4 transition duration-300 hover:-translate-y-1 hover:border-white/15">
+                <div className={"absolute inset-x-0 top-0 h-24 bg-gradient-to-b "+feature.tone} />
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-[13px] border border-white/10 bg-black/20 text-slate-300 transition group-hover/card:scale-105 group-hover/card:text-white">
+                      <Icon className="h-4.5 w-4.5" />
                     </div>
+                    <div className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-black/15 px-2.5 py-1 text-[9px] font-semibold text-slate-500">
+                      <CircleDot className="h-3 w-3" />
+                      {feature.status}
+                    </div>
+                  </div>
 
-                    <div className="mt-3 flex items-center gap-3">
-                      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
-                        <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400" style={{ width: String(feature.progress) + "%" }} />
-                      </div>
-                      <span className="w-8 text-right font-mono text-[10px] text-slate-600">{feature.progress}%</span>
+                  <h4 className="mt-6 text-sm font-semibold text-white">{feature.title}</h4>
+                  <p className="mt-2 min-h-12 text-[11px] leading-5 text-slate-600">{feature.description}</p>
+
+                  <div className="mt-5">
+                    <div className="flex items-center justify-between text-[9px] text-slate-700">
+                      <span>Progress</span>
+                      <span className="font-mono">{feature.progress}%</span>
+                    </div>
+                    <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/[0.05]">
+                      <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 transition-all duration-700" style={{width:feature.progress+"%"}} />
                     </div>
                   </div>
                 </div>
