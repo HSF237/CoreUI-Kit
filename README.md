@@ -1,4 +1,8 @@
-# CoreUI-Kit
+# CoreUI-Kit (archived)
+
+**This repository is archived.** Active development has moved to **[HSF237/CoreUI-Kit-v2.3](https://github.com/HSF237/CoreUI-Kit-v2.3)** — please open issues, PRs, and clone from there instead.
+
+---
 
 **CoreUI-Kit is a free, open-source copy-and-paste UI registry for React and Tailwind CSS.**
 
