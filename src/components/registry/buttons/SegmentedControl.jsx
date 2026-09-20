@@ -1,7 +1,7 @@
 import { Grid2X2, List, PanelsTopLeft } from "lucide-react";
 
 export default function SegmentedControl(){
-  return <section className="w-full max-w-lg rounded-[26px] border border-white/10 bg-[#07101c] p-6 shadow-2xl shadow-black/35">
+  return <section className="w-full max-w-lg rounded-[26px] border border-white/10 bg-[#0d0d10] p-6 shadow-[0_18px_60px_rgba(0,0,0,.24)]">
     <p className="text-xs text-slate-500">View preference</p>
     <div className="mt-4 inline-flex rounded-2xl border border-white/10 bg-black/15 p-1.5">
       {[
