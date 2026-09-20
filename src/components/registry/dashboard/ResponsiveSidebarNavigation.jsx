@@ -27,7 +27,7 @@ function Navigation({ collapsed, active, onSelect, onCollapse, mobile, onClose }
     <div className="flex h-full flex-col">
       <div className={"flex h-[70px] items-center border-b border-white/[0.07] px-3 " + (collapsed ? "justify-center" : "justify-between")}>
         <div className="flex min-w-0 items-center gap-2.5">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[13px] bg-gradient-to-br from-cyan-300 to-violet-300 text-slate-950 shadow-lg shadow-cyan-950/25">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[13px] bg-gradient-to-br from-blue-300 to-indigo-300 text-slate-950 shadow-lg shadow-blue-950/25">
             <Sparkles className="h-4.5 w-4.5" />
           </div>
           {!collapsed && <div className="min-w-0"><p className="truncate text-sm font-semibold text-white">Nexus</p><p className="truncate text-[9px] uppercase tracking-[0.15em] text-slate-700">Enterprise</p></div>}
@@ -37,7 +37,7 @@ function Navigation({ collapsed, active, onSelect, onCollapse, mobile, onClose }
 
       <div className="flex-1 p-2.5">
         {!collapsed && (
-          <label className="mb-3 flex h-10 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 text-slate-600 focus-within:border-cyan-300/20">
+          <label className="mb-3 flex h-10 items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 text-slate-600 focus-within:border-blue-300/20">
             <Search className="h-3.5 w-3.5" />
             <input placeholder="Search workspace" className="min-w-0 flex-1 bg-transparent text-[11px] text-slate-300 outline-none placeholder:text-slate-700" />
             <kbd className="rounded-md border border-white/[0.07] px-1.5 py-0.5 font-mono text-[8px] text-slate-700">⌘K</kbd>
@@ -58,13 +58,13 @@ function Navigation({ collapsed, active, onSelect, onCollapse, mobile, onClose }
                   "group flex h-10 w-full items-center rounded-xl border text-xs font-medium transition",
                   collapsed ? "justify-center" : "gap-3 px-3",
                   selected
-                    ? "border-cyan-300/15 bg-cyan-300/[0.08] text-cyan-100"
+                    ? "border-blue-300/15 bg-blue-300/[0.08] text-blue-100"
                     : "border-transparent text-slate-600 hover:bg-white/[0.035] hover:text-slate-300",
                 ].join(" ")}
               >
-                <Icon className={"h-4 w-4 shrink-0 " + (selected ? "text-cyan-300" : "text-slate-700 group-hover:text-slate-400")} />
+                <Icon className={"h-4 w-4 shrink-0 " + (selected ? "text-blue-300" : "text-slate-700 group-hover:text-slate-400")} />
                 {!collapsed && <span className="flex-1 text-left">{item.label}</span>}
-                {!collapsed && selected && <ChevronRight className="h-3 w-3 text-cyan-300/60" />}
+                {!collapsed && selected && <ChevronRight className="h-3 w-3 text-blue-300/60" />}
               </button>
             );
           })}
@@ -87,7 +87,7 @@ function Navigation({ collapsed, active, onSelect, onCollapse, mobile, onClose }
           </button>
         )}
         <div className={"flex items-center rounded-xl border border-white/[0.07] bg-white/[0.02] p-2 " + (collapsed ? "justify-center" : "gap-3")}>
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-br from-violet-300/30 to-cyan-300/20 text-[10px] font-bold text-slate-200">MK</div>
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-300/30 to-blue-300/20 text-[10px] font-bold text-slate-200">MK</div>
           {!collapsed && <div className="min-w-0 flex-1"><p className="truncate text-[11px] font-medium text-slate-300">Maya Kim</p><p className="truncate text-[9px] text-slate-700">Product admin</p></div>}
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function ResponsiveSidebarNavigation(){
   const [active,setActive]=useState("Overview");
 
   return (
-    <section className="relative min-h-[540px] w-full max-w-5xl overflow-hidden rounded-[28px] border border-white/10 bg-[#06101b] shadow-2xl shadow-black/35">
+    <section className="relative min-h-[540px] w-full max-w-5xl overflow-hidden rounded-[28px] border border-white/10 bg-[#0d0d10] shadow-[0_18px_60px_rgba(0,0,0,.24)]">
       <div className="flex min-h-[540px]">
         <aside className={"hidden shrink-0 border-r border-white/[0.07] bg-[#040a12] transition-[width] duration-300 md:block " + (collapsed ? "w-[72px]" : "w-[230px]")}>
           <Navigation collapsed={collapsed} active={active} onSelect={setActive} onCollapse={()=>setCollapsed(!collapsed)} />
@@ -141,14 +141,14 @@ export default function ResponsiveSidebarNavigation(){
               <article className="rounded-[20px] border border-white/[0.08] bg-white/[0.018] p-4">
                 <div className="flex items-center justify-between"><div><p className="text-xs font-medium text-slate-400">Performance</p><p className="mt-1 text-[9px] text-slate-700">Revenue over time</p></div><span className="text-[9px] text-slate-700">Live</span></div>
                 <div className="mt-6 flex h-48 items-end gap-2">
-                  {[35,46,42,61,55,74,66,83,76,92,84,97].map((height,index)=><div key={index} className="flex-1 rounded-t-md bg-gradient-to-t from-cyan-400/10 to-violet-400/55" style={{height:height+"%"}} />)}
+                  {[35,46,42,61,55,74,66,83,76,92,84,97].map((height,index)=><div key={index} className="flex-1 rounded-t-md bg-gradient-to-t from-blue-400/10 to-indigo-400/55" style={{height:height+"%"}} />)}
                 </div>
               </article>
 
-              <article className="rounded-[20px] border border-white/[0.08] bg-gradient-to-b from-cyan-300/[0.05] to-transparent p-4">
+              <article className="rounded-[20px] border border-white/[0.08] bg-gradient-to-b from-blue-300/[0.05] to-transparent p-4">
                 <p className="text-xs font-medium text-slate-400">Goal</p>
                 <div className="mx-auto mt-7 flex h-32 w-32 items-center justify-center rounded-full bg-[conic-gradient(#67e8f9_0_74%,rgba(255,255,255,.05)_74%_100%)]">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#07101b]"><div className="text-center"><p className="text-2xl font-semibold text-white">74%</p><p className="text-[9px] text-slate-700">complete</p></div></div>
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#111114]"><div className="text-center"><p className="text-2xl font-semibold text-white">74%</p><p className="text-[9px] text-slate-700">complete</p></div></div>
                 </div>
               </article>
             </div>
