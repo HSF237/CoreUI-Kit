@@ -1,0 +1,32 @@
+{
+  "name": "coreui-kit",
+  "version": "0.1.0",
+  "description": "A copy-and-paste React + Tailwind CSS UI registry.",
+  "categories": ["fintech", "dashboard", "interactive"],
+  "items": [
+    {
+      "name": "transaction-exchange-overview",
+      "title": "Transaction & Exchange Overview",
+      "category": "fintech",
+      "type": "registry:component",
+      "files": ["src/components/registry/fintech/TransactionExchangeOverview.jsx"],
+      "dependencies": ["lucide-react"]
+    },
+    {
+      "name": "responsive-sidebar-navigation",
+      "title": "Responsive Sidebar Navigation",
+      "category": "dashboard",
+      "type": "registry:component",
+      "files": ["src/components/registry/dashboard/ResponsiveSidebarNavigation.jsx"],
+      "dependencies": ["lucide-react", "react"]
+    },
+    {
+      "name": "upcoming-features-card",
+      "title": "Glassmorphic Upcoming Features",
+      "category": "interactive",
+      "type": "registry:component",
+      "files": ["src/components/registry/interactive/UpcomingFeaturesCard.jsx"],
+      "dependencies": ["lucide-react"]
+    }
+  ]
+}
