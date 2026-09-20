@@ -1,22 +1,22 @@
 import { ArrowUpRight, Boxes, CircleDot, Sparkles, WandSparkles, Workflow } from "lucide-react";
 
 const features = [
-  { title:"Automation Studio", description:"Compose multi-step workflows with triggers and guardrails.", status:"Building", progress:78, icon:Workflow, tone:"from-cyan-300/15 to-cyan-300/[0.02]" },
-  { title:"Component Cloud", description:"Sync private component collections across every workspace.", status:"Planned", progress:46, icon:Boxes, tone:"from-violet-300/15 to-violet-300/[0.02]" },
+  { title:"Automation Studio", description:"Compose multi-step workflows with triggers and guardrails.", status:"Building", progress:78, icon:Workflow, tone:"from-amber-300/15 to-amber-300/[0.02]" },
+  { title:"Component Cloud", description:"Sync private component collections across every workspace.", status:"Planned", progress:46, icon:Boxes, tone:"from-rose-300/15 to-rose-300/[0.02]" },
   { title:"AI Theme Lab", description:"Generate production design tokens from your visual language.", status:"Research", progress:24, icon:WandSparkles, tone:"from-amber-300/15 to-amber-300/[0.02]" },
 ];
 
 export default function UpcomingFeaturesCard(){
   return (
-    <section className="group relative w-full max-w-3xl overflow-hidden rounded-[30px] border border-white/10 bg-[#06101c] p-1 shadow-2xl shadow-black/40">
-      <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cyan-400/10 blur-[80px] transition duration-700 group-hover:bg-cyan-400/15" />
-      <div className="absolute -bottom-24 -right-16 h-56 w-56 rounded-full bg-violet-500/10 blur-[80px] transition duration-700 group-hover:bg-violet-500/15" />
+    <section className="group relative w-full max-w-3xl overflow-hidden rounded-[30px] border border-white/10 bg-[#0d0d10] p-1 shadow-[0_18px_60px_rgba(0,0,0,.24)]">
+      <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-amber-400/10 blur-[80px] transition duration-700 group-hover:bg-amber-400/15" />
+      <div className="absolute -bottom-24 -right-16 h-56 w-56 rounded-full bg-rose-500/10 blur-[80px] transition duration-700 group-hover:bg-rose-500/15" />
 
       <div className="relative rounded-[26px] border border-white/[0.07] bg-black/10 p-5 sm:p-6">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
+              <Sparkles className="h-3.5 w-3.5 text-amber-300" />
               Product roadmap
             </div>
             <h3 className="mt-4 text-2xl font-semibold tracking-[-0.035em] text-white sm:text-3xl">What we are building next.</h3>
@@ -55,7 +55,7 @@ export default function UpcomingFeaturesCard(){
                       <span className="font-mono">{feature.progress}%</span>
                     </div>
                     <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/[0.05]">
-                      <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 transition-all duration-700" style={{width:feature.progress+"%"}} />
+                      <div className="h-full rounded-full bg-gradient-to-r from-amber-300 to-rose-300 transition-all duration-700" style={{width:feature.progress+"%"}} />
                     </div>
                   </div>
                 </div>
