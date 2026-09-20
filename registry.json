@@ -1,8 +1,8 @@
 {
   "name": "coreui-kit",
-  "version": "0.2.0",
-  "description": "A premium copy-and-paste React + Tailwind CSS UI registry.",
-  "categories": ["fintech", "dashboard", "interactive", "buttons", "loaders", "forms"],
+  "version": "0.3.0",
+  "description": "A free, open-source copy-and-paste React + Tailwind CSS UI registry.",
+  "categories": ["fintech", "dashboard", "interactive", "buttons", "loaders", "forms", "overlays", "marketing"],
   "items": [
     {"name":"transaction-exchange-overview","category":"fintech","type":"registry:component","files":["src/components/registry/fintech/TransactionExchangeOverview.jsx"],"dependencies":["lucide-react"]},
     {"name":"premium-wallet-card","category":"fintech","type":"registry:component","files":["src/components/registry/fintech/PremiumWalletCard.jsx"],"dependencies":["lucide-react"]},
@@ -35,6 +35,16 @@
     {"name":"smart-login-panel","category":"forms","type":"registry:component","files":["src/components/registry/forms/SmartLoginPanel.jsx"],"dependencies":["lucide-react"]},
     {"name":"profile-settings-form","category":"forms","type":"registry:component","files":["src/components/registry/forms/ProfileSettingsForm.jsx"],"dependencies":["lucide-react"]},
     {"name":"search-filter-bar","category":"forms","type":"registry:component","files":["src/components/registry/forms/SearchFilterBar.jsx"],"dependencies":["lucide-react"]},
-    {"name":"file-upload-dropzone","category":"forms","type":"registry:component","files":["src/components/registry/forms/FileUploadDropzone.jsx"],"dependencies":["lucide-react"]}
+    {"name":"file-upload-dropzone","category":"forms","type":"registry:component","files":["src/components/registry/forms/FileUploadDropzone.jsx"],"dependencies":["lucide-react"]},
+
+    {"name":"glass-modal-dialog","category":"overlays","type":"registry:component","files":["src/components/registry/overlays/GlassModalDialog.jsx"],"dependencies":["lucide-react"]},
+    {"name":"toast-notification-stack","category":"overlays","type":"registry:component","files":["src/components/registry/overlays/ToastNotificationStack.jsx"],"dependencies":["lucide-react"]},
+    {"name":"tooltip-popover-kit","category":"overlays","type":"registry:component","files":["src/components/registry/overlays/TooltipPopoverKit.jsx"],"dependencies":["lucide-react"]},
+    {"name":"confirm-delete-dialog","category":"overlays","type":"registry:component","files":["src/components/registry/overlays/ConfirmDeleteDialog.jsx"],"dependencies":["lucide-react"]},
+
+    {"name":"testimonial-carousel","category":"marketing","type":"registry:component","files":["src/components/registry/marketing/TestimonialCarousel.jsx"],"dependencies":["lucide-react"]},
+    {"name":"faq-accordion","category":"marketing","type":"registry:component","files":["src/components/registry/marketing/FaqAccordion.jsx"],"dependencies":["lucide-react"]},
+    {"name":"logo-cloud","category":"marketing","type":"registry:component","files":["src/components/registry/marketing/LogoCloud.jsx"],"dependencies":[]},
+    {"name":"newsletter-cta-banner","category":"marketing","type":"registry:component","files":["src/components/registry/marketing/NewsletterCtaBanner.jsx"],"dependencies":["lucide-react"]}
   ]
 }

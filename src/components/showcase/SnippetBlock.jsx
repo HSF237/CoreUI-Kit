@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, Code2, Copy, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Check, Code2, Copy, Eye, Link2 } from "lucide-react";
 
 const themes = {
   fintech: {
@@ -53,6 +54,9 @@ export default function SnippetBlock({
   code,
   tags = [],
   category = "dashboard",
+  slug,
+  linkToDetail = true,
+  dependencies = [],
   children,
 }) {
   const [copied, setCopied] = useState(false);
@@ -85,36 +89,52 @@ export default function SnippetBlock({
   const lines = code.replace(/\s+$/, "").split("\n");
 
   return (
-    <article className="overflow-hidden rounded-[28px] border border-white/[0.075] bg-[#0c0c0f] shadow-[0_18px_70px_rgba(0,0,0,.28)]">
+    <article className="overflow-hidden rounded-[28px] border border-[var(--chrome-border)] bg-[var(--chrome-surface)] shadow-[0_18px_70px_rgba(0,0,0,.28)]">
       <div className={"h-[2px] w-full " + theme.line} />
 
       <header className="px-5 py-5 sm:px-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="max-w-3xl">
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-lg font-semibold tracking-[-0.025em] text-zinc-50 sm:text-xl">{title}</h2>
+              {linkToDetail && slug ? (
+                <Link
+                  to={`/components/${slug}`}
+                  className="group inline-flex items-center gap-1.5 text-lg font-semibold tracking-[-0.025em] text-[var(--chrome-text-primary)] hover:underline sm:text-xl"
+                >
+                  <h2 className="inline">{title}</h2>
+                  <Link2 className="h-3.5 w-3.5 shrink-0 text-[var(--chrome-text-muted)] opacity-0 transition group-hover:opacity-100" />
+                </Link>
+              ) : (
+                <h2 className="text-lg font-semibold tracking-[-0.025em] text-[var(--chrome-text-primary)] sm:text-xl">{title}</h2>
+              )}
               <span className={"rounded-md border px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] " + theme.badge}>Ready</span>
             </div>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-500">{description}</p>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--chrome-text-muted)]">{description}</p>
+
+            {dependencies.length > 0 && (
+              <p className="mt-2 font-mono text-[10px] text-[var(--chrome-text-faint)]">
+                deps: {dependencies.join(", ")}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-1.5">
             {tags.map((tag) => (
-              <span key={tag} className="rounded-lg border border-white/[0.07] bg-white/[0.025] px-2.5 py-1 text-[10px] font-medium text-zinc-500">
+              <span key={tag} className="rounded-lg border border-[var(--chrome-border)] bg-[var(--chrome-hover)] px-2.5 py-1 text-[10px] font-medium text-[var(--chrome-text-muted)]">
                 {tag}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="mt-5 flex flex-col gap-3 border-t border-white/[0.06] pt-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="inline-flex w-fit rounded-xl border border-white/[0.08] bg-black/20 p-1">
+        <div className="mt-5 flex flex-col gap-3 border-t border-[var(--chrome-border-soft)] pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="inline-flex w-fit rounded-xl border border-[var(--chrome-border)] bg-black/20 p-1">
             <button
               type="button"
               onClick={() => setView("preview")}
               className={[
                 "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-[11px] font-semibold transition",
-                view === "preview" ? "bg-zinc-100 text-zinc-950 shadow-sm" : "text-zinc-500 hover:text-white",
+                view === "preview" ? "bg-zinc-100 text-zinc-950 shadow-sm" : "text-[var(--chrome-text-muted)] hover:text-[var(--chrome-text-primary)]",
               ].join(" ")}
             >
               <Eye className="h-3.5 w-3.5" />
@@ -125,7 +145,7 @@ export default function SnippetBlock({
               onClick={() => setView("code")}
               className={[
                 "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-[11px] font-semibold transition",
-                view === "code" ? "bg-zinc-100 text-zinc-950 shadow-sm" : "text-zinc-500 hover:text-white",
+                view === "code" ? "bg-zinc-100 text-zinc-950 shadow-sm" : "text-[var(--chrome-text-muted)] hover:text-[var(--chrome-text-primary)]",
               ].join(" ")}
             >
               <Code2 className="h-3.5 w-3.5" />
@@ -140,7 +160,7 @@ export default function SnippetBlock({
               "inline-flex h-9 items-center justify-center gap-2 rounded-xl border px-3.5 text-[11px] font-semibold transition",
               copied
                 ? "border-emerald-300/20 bg-emerald-300/[0.07] text-emerald-300"
-                : "border-white/[0.09] bg-white/[0.035] text-zinc-300 hover:bg-white/[0.065] hover:text-white",
+                : "border-[var(--chrome-border)] bg-[var(--chrome-hover)] text-[var(--chrome-text-secondary)] hover:bg-[var(--chrome-border)] hover:text-[var(--chrome-text-primary)]",
             ].join(" ")}
             aria-live="polite"
           >

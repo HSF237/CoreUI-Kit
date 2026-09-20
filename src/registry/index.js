@@ -59,6 +59,26 @@ import searchFilterSource from "../components/registry/forms/SearchFilterBar.jsx
 import FileUploadDropzone from "../components/registry/forms/FileUploadDropzone.jsx";
 import fileUploadSource from "../components/registry/forms/FileUploadDropzone.jsx?raw";
 
+import GlassModalDialog from "../components/registry/overlays/GlassModalDialog.jsx";
+import glassModalSource from "../components/registry/overlays/GlassModalDialog.jsx?raw";
+import ToastNotificationStack from "../components/registry/overlays/ToastNotificationStack.jsx";
+import toastStackSource from "../components/registry/overlays/ToastNotificationStack.jsx?raw";
+import TooltipPopoverKit from "../components/registry/overlays/TooltipPopoverKit.jsx";
+import tooltipPopoverSource from "../components/registry/overlays/TooltipPopoverKit.jsx?raw";
+import ConfirmDeleteDialog from "../components/registry/overlays/ConfirmDeleteDialog.jsx";
+import confirmDeleteSource from "../components/registry/overlays/ConfirmDeleteDialog.jsx?raw";
+
+import TestimonialCarousel from "../components/registry/marketing/TestimonialCarousel.jsx";
+import testimonialCarouselSource from "../components/registry/marketing/TestimonialCarousel.jsx?raw";
+import FaqAccordion from "../components/registry/marketing/FaqAccordion.jsx";
+import faqAccordionSource from "../components/registry/marketing/FaqAccordion.jsx?raw";
+import LogoCloud from "../components/registry/marketing/LogoCloud.jsx";
+import logoCloudSource from "../components/registry/marketing/LogoCloud.jsx?raw";
+import NewsletterCtaBanner from "../components/registry/marketing/NewsletterCtaBanner.jsx";
+import newsletterCtaSource from "../components/registry/marketing/NewsletterCtaBanner.jsx?raw";
+
+import registryManifest from "../../registry.json";
+
 export const categories = [
   { id: "fintech", label: "Fintech Blocks" },
   { id: "dashboard", label: "Dashboards" },
@@ -66,9 +86,15 @@ export const categories = [
   { id: "buttons", label: "Buttons & Actions" },
   { id: "loaders", label: "Loaders & Progress" },
   { id: "forms", label: "Forms & Inputs" },
+  { id: "overlays", label: "Overlays & Feedback" },
+  { id: "marketing", label: "Marketing Sections" },
 ];
 
-export const registryItems = [
+const dependenciesBySlug = Object.fromEntries(
+  registryManifest.items.map((item) => [item.name, item.dependencies ?? []]),
+);
+
+const rawRegistryItems = [
   { slug:"transaction-exchange-overview", title:"Transaction & Exchange Overview", description:"Treasury overview with balances, streams and live rate movement.", category:"fintech", path:"src/components/registry/fintech/TransactionExchangeOverview.jsx", component:TransactionExchangeOverview, source:transactionOverviewSource, tags:["Fintech","Data UI","Responsive"] },
   { slug:"premium-wallet-card", title:"Premium Wallet Card", description:"High-end digital wallet with balance, virtual card and quick actions.", category:"fintech", path:"src/components/registry/fintech/PremiumWalletCard.jsx", component:PremiumWalletCard, source:premiumWalletSource, tags:["Wallet","Fintech","Glass"] },
   { slug:"payment-method-stack", title:"Payment Method Stack", description:"Checkout selector for cards, bank accounts and mobile wallets.", category:"fintech", path:"src/components/registry/fintech/PaymentMethodStack.jsx", component:PaymentMethodStack, source:paymentMethodSource, tags:["Payments","Checkout","Selection"] },
@@ -101,4 +127,19 @@ export const registryItems = [
   { slug:"profile-settings-form", title:"Profile Settings Form", description:"Account settings form with avatar, identity and bio editing.", category:"forms", path:"src/components/registry/forms/ProfileSettingsForm.jsx", component:ProfileSettingsForm, source:profileSettingsSource, tags:["Settings","Profile","Form"] },
   { slug:"search-filter-bar", title:"Search & Filter Bar", description:"Advanced filtering surface for project and dataset browsing.", category:"forms", path:"src/components/registry/forms/SearchFilterBar.jsx", component:SearchFilterBar, source:searchFilterSource, tags:["Search","Filters","Input"] },
   { slug:"file-upload-dropzone", title:"File Upload Dropzone", description:"Drag-and-drop upload surface with uploaded-file states.", category:"forms", path:"src/components/registry/forms/FileUploadDropzone.jsx", component:FileUploadDropzone, source:fileUploadSource, tags:["Upload","Files","Form"] },
+
+  { slug:"glass-modal-dialog", title:"Glass Modal Dialog", description:"Centered confirmation modal with glass backdrop and focus-friendly actions.", category:"overlays", path:"src/components/registry/overlays/GlassModalDialog.jsx", component:GlassModalDialog, source:glassModalSource, tags:["Modal","Dialog","Overlay"] },
+  { slug:"toast-notification-stack", title:"Toast Notification Stack", description:"Stacked success, error and info toasts with auto-dismiss and manual close.", category:"overlays", path:"src/components/registry/overlays/ToastNotificationStack.jsx", component:ToastNotificationStack, source:toastStackSource, tags:["Toast","Alerts","Feedback"] },
+  { slug:"tooltip-popover-kit", title:"Tooltip & Popover Kit", description:"Hover tooltips and a click-triggered popover menu built on the same primitives.", category:"overlays", path:"src/components/registry/overlays/TooltipPopoverKit.jsx", component:TooltipPopoverKit, source:tooltipPopoverSource, tags:["Tooltip","Popover","Hover"] },
+  { slug:"confirm-delete-dialog", title:"Confirm Delete Dialog", description:"Destructive-action confirmation with typed confirmation safeguard.", category:"overlays", path:"src/components/registry/overlays/ConfirmDeleteDialog.jsx", component:ConfirmDeleteDialog, source:confirmDeleteSource, tags:["Dialog","Destructive","Confirm"] },
+
+  { slug:"testimonial-carousel", title:"Testimonial Carousel", description:"Auto-advancing customer quote carousel with manual controls and dots.", category:"marketing", path:"src/components/registry/marketing/TestimonialCarousel.jsx", component:TestimonialCarousel, source:testimonialCarouselSource, tags:["Testimonials","Carousel","Social Proof"] },
+  { slug:"faq-accordion", title:"FAQ Accordion", description:"Single-open accordion for landing page frequently asked questions.", category:"marketing", path:"src/components/registry/marketing/FaqAccordion.jsx", component:FaqAccordion, source:faqAccordionSource, tags:["FAQ","Accordion","Landing"] },
+  { slug:"logo-cloud", title:"Logo Cloud", description:"'Trusted by' logo strip with responsive grid and hover emphasis.", category:"marketing", path:"src/components/registry/marketing/LogoCloud.jsx", component:LogoCloud, source:logoCloudSource, tags:["Social Proof","Logos","Marketing"] },
+  { slug:"newsletter-cta-banner", title:"Newsletter CTA Banner", description:"Email capture banner with inline validation state and gradient surface.", category:"marketing", path:"src/components/registry/marketing/NewsletterCtaBanner.jsx", component:NewsletterCtaBanner, source:newsletterCtaSource, tags:["Newsletter","CTA","Form"] },
 ];
+
+export const registryItems = rawRegistryItems.map((item) => ({
+  ...item,
+  dependencies: dependenciesBySlug[item.slug] ?? [],
+}));
