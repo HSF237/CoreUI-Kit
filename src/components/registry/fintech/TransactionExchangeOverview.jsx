@@ -16,15 +16,15 @@ const assets = [
 
 export default function TransactionExchangeOverview() {
   return (
-    <section className="relative w-full max-w-4xl overflow-hidden rounded-[30px] border border-white/10 bg-[#06101c] p-5 shadow-2xl shadow-black/40 sm:p-6">
-      <div className="absolute -right-28 -top-28 h-64 w-64 rounded-full bg-cyan-400/10 blur-[90px]" />
-      <div className="absolute -bottom-32 left-1/3 h-64 w-64 rounded-full bg-violet-500/10 blur-[90px]" />
+    <section className="relative w-full max-w-4xl overflow-hidden rounded-[30px] border border-white/10 bg-[#0d0d10] p-5 shadow-[0_18px_60px_rgba(0,0,0,.24)] sm:p-6">
+      <div className="absolute -right-28 -top-28 h-64 w-64 rounded-full bg-emerald-400/10 blur-[90px]" />
+      <div className="absolute -bottom-32 left-1/3 h-64 w-64 rounded-full bg-sky-500/10 blur-[90px]" />
 
       <div className="relative">
         <div className="flex flex-col gap-5 border-b border-white/[0.08] pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-              <WalletCards className="h-4 w-4 text-cyan-300" />
+              <WalletCards className="h-4 w-4 text-emerald-300" />
               Treasury balance
             </div>
             <div className="mt-3 flex flex-wrap items-end gap-3">
@@ -66,7 +66,7 @@ export default function TransactionExchangeOverview() {
                         <p className="text-sm font-medium text-slate-200">{asset.name}</p>
                         <div className="mt-2 flex items-center gap-2">
                           <div className="h-1 w-20 overflow-hidden rounded-full bg-white/[0.05]">
-                            <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300" style={{ width: [82, 56, 31][index] + "%" }} />
+                            <div className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-sky-300" style={{ width: [82, 56, 31][index] + "%" }} />
                           </div>
                           <span className="text-[9px] text-slate-700">{asset.allocation}</span>
                         </div>
@@ -87,13 +87,13 @@ export default function TransactionExchangeOverview() {
           </div>
 
           <div className="grid gap-3">
-            <div className="rounded-[22px] border border-white/[0.08] bg-gradient-to-br from-cyan-300/[0.08] to-transparent p-4">
+            <div className="rounded-[22px] border border-white/[0.08] bg-gradient-to-br from-emerald-300/[0.08] to-transparent p-4">
               <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600">USD / EUR</p>
               <p className="mt-3 font-mono text-3xl font-semibold tracking-[-0.04em] text-white">0.9184</p>
               <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-300"><TrendingUp className="h-3 w-3" /> +0.42% today</p>
               <div className="mt-5 flex h-14 items-end gap-1">
                 {[32, 45, 39, 58, 52, 71, 66, 82, 75, 91].map((height, index) => (
-                  <div key={index} className="flex-1 rounded-t-sm bg-gradient-to-t from-cyan-400/15 to-cyan-300/60" style={{ height: height + "%" }} />
+                  <div key={index} className="flex-1 rounded-t-sm bg-gradient-to-t from-emerald-400/15 to-emerald-300/60" style={{ height: height + "%" }} />
                 ))}
               </div>
             </div>
